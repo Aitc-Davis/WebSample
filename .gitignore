@@ -1,0 +1,6 @@
+/lib/
+/target/
+
+### IntelliJ IDEA ###
+.idea
+*.iml
