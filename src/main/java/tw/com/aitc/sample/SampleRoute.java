@@ -32,17 +32,18 @@ public class SampleRoute extends RouteBuilder {
 				.produces("application/json")
 				.to("direct:sqlAction") // 用 sqlAction 流程繼續處理
 
-		// 打 /other/xxxx
-//				.post("/other/xxxx")
+//				// 可以定多個 API
+//				// 打 /other/xxxx
+//				.get("/other/xxxx")
 //				.produces("application/json")
 //				.to("direct:doXXXX")
 		;
 
-		// 用 timer 定義一段用來檢查 DB 是否連上的流程，只重複執行一次
-		from("timer:checkDB?repeatCount=1")
-				.to("sql:SELECT LOCALTIMESTAMP(2)")
-				.log(LoggingLevel.INFO, "${body}")
-		;
+//		// 用 timer 定義一段用來檢查 DB 是否連上的流程，只重複執行一次
+//		from("timer:checkDB?repeatCount=1")
+//				.to("sql:SELECT LOCALTIMESTAMP(2)")
+//				.log(LoggingLevel.INFO, "${body}")
+//		;
 
 		// 定義一段處理交易的流程 sqlAction
 		from("direct:sqlAction")
