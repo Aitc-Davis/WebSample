@@ -136,6 +136,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib</classpathPrefix>
+                            <mainClass>tw.com.aitc.sample.Sample</mainClass>
                         </manifest>
                         <manifestEntries>
                             <Built-By>Azure</Built-By>

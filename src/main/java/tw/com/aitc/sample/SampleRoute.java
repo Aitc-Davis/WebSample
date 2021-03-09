@@ -56,7 +56,7 @@ public class SampleRoute extends RouteBuilder {
 
 				// SQL，參考 https://camel.apache.org/components/2.x/sql-component.html
 				// Simeple，參考 https://camel.apache.org/components/2.x/languages/simple-language.html
-				.setHeader("SQL", simple("insert into sample_table VALUES(':#ID', ':#NAME')"))
+				.setHeader("SQL", simple("insert into sample_table VALUES(:#ID, :#NAME)"))
 				.toD("sql:${header.SQL}")
 
 				// 類似 if-else
@@ -76,7 +76,7 @@ public class SampleRoute extends RouteBuilder {
 
 	private void prepareDB() throws Exception {
 		CamelContext context = getContext();
-		Map<String, Object> registryMap = new HashMap();
+		Map<String, Object> registryMap = new HashMap<>();
 
 		// 從設定檔讀出 DB 相關資料
 		DataSource dataSource = context.getRegistry().lookupByNameAndType("dataSource", DataSource.class);
